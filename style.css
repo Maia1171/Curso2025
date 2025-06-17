@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0 0%, #d4af37 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  position: absolute;
+  top: 40px;
+  font-size: 2.5rem;
+  color: #fff;
+  z-index: 2;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.animation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.river {
+  position: absolute;
+  bottom: -100px;
+  width: 200%;
+  height: 200px;
+  background: repeating-linear-gradient(
+    45deg,
+    #8b5,
+    #8b5 10px,
+    #b97 10px,
+    #b97 20px
+  );
+  animation: flow 10s linear infinite;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.7;
+}
+
+@keyframes flow {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.city, .cesta-alimentos, .sucos-bolos, .houses {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: appear 12s forwards;
+}
+
+.cesta-alimentos {
+  animation-delay: 4s;
+}
+
+.sucos-bolos {
+  animation-delay: 6s;
+}
+
+.houses {
+  animation-delay: 8s;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+.city::before {
+  content: "\1F3D9";
+  font-size: 40rem;
+}
+
+.cesta-alimentos::before {
+  content: "\1F9C3\1F34E\1F96C";
+  font-size: 50rem;
+}
+
+.sucos-bolos::before {
+  content: "\1F379\1F370";
+  font-size: 34rem;
+}
+
+.houses::before {
+  content: "\1F3E0\1F3E1";
+  font-size: 60rem;
+}
